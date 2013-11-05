@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 D:\\work\\prohazko.simpePascal\\src\\simpePascal.g 2013-11-05 16:26:51
+// $ANTLR 3.5.1 D:\\univer\\simplePascal\\src\\SimplePascal.g 2013-11-05 16:52:47
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 @SuppressWarnings("all")
-public class simpePascalLexer extends Lexer {
+public class SimplePascalLexer extends Lexer {
 	public static final int EOF=-1;
 	public static final int DIGIT=4;
 	public static final int DIV=5;
@@ -22,22 +22,22 @@ public class simpePascalLexer extends Lexer {
 		return new Lexer[] {};
 	}
 
-	public simpePascalLexer() {} 
-	public simpePascalLexer(CharStream input) {
+	public SimplePascalLexer() {} 
+	public SimplePascalLexer(CharStream input) {
 		this(input, new RecognizerSharedState());
 	}
-	public simpePascalLexer(CharStream input, RecognizerSharedState state) {
+	public SimplePascalLexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "D:\\work\\prohazko.simpePascal\\src\\simpePascal.g"; }
+	@Override public String getGrammarFileName() { return "D:\\univer\\simplePascal\\src\\SimplePascal.g"; }
 
 	// $ANTLR start "DIV"
 	public final void mDIV() throws RecognitionException {
 		try {
 			int _type = DIV;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:2:5: ( '/' )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:2:7: '/'
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:2:5: ( '/' )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:2:7: '/'
 			{
 			match('/'); 
 			}
@@ -56,8 +56,8 @@ public class simpePascalLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:3:7: ( '-' )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:3:9: '-'
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:3:7: ( '-' )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:3:9: '-'
 			{
 			match('-'); 
 			}
@@ -76,8 +76,8 @@ public class simpePascalLexer extends Lexer {
 		try {
 			int _type = MULT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:4:6: ( '*' )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:4:8: '*'
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:4:6: ( '*' )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:4:8: '*'
 			{
 			match('*'); 
 			}
@@ -96,8 +96,8 @@ public class simpePascalLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:5:6: ( '+' )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:5:8: '+'
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:5:6: ( '+' )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:5:8: '+'
 			{
 			match('+'); 
 			}
@@ -116,10 +116,10 @@ public class simpePascalLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:32:9: ( ( DIGIT )+ )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:32:11: ( DIGIT )+
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:32:9: ( ( DIGIT )+ )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:32:11: ( DIGIT )+
 			{
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:32:11: ( DIGIT )+
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:32:11: ( DIGIT )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -131,7 +131,7 @@ public class simpePascalLexer extends Lexer {
 
 				switch (alt1) {
 				case 1 :
-					// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:
+					// D:\\univer\\simplePascal\\src\\SimplePascal.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 						input.consume();
@@ -168,10 +168,10 @@ public class simpePascalLexer extends Lexer {
 		try {
 			int _type = WHITESPACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:34:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:34:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:34:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:34:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
 			{
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:34:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:34:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -183,7 +183,7 @@ public class simpePascalLexer extends Lexer {
 
 				switch (alt2) {
 				case 1 :
-					// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:
+					// D:\\univer\\simplePascal\\src\\SimplePascal.g:
 					{
 					if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 						input.consume();
@@ -219,8 +219,8 @@ public class simpePascalLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:36:17: ( '0' .. '9' )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:36:17: ( '0' .. '9' )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 				input.consume();
@@ -241,7 +241,7 @@ public class simpePascalLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:8: ( DIV | MINUS | MULT | PLUS | NUMBER | WHITESPACE )
+		// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:8: ( DIV | MINUS | MULT | PLUS | NUMBER | WHITESPACE )
 		int alt3=6;
 		switch ( input.LA(1) ) {
 		case '/':
@@ -294,42 +294,42 @@ public class simpePascalLexer extends Lexer {
 		}
 		switch (alt3) {
 			case 1 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:10: DIV
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:10: DIV
 				{
 				mDIV(); 
 
 				}
 				break;
 			case 2 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:14: MINUS
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:14: MINUS
 				{
 				mMINUS(); 
 
 				}
 				break;
 			case 3 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:20: MULT
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:20: MULT
 				{
 				mMULT(); 
 
 				}
 				break;
 			case 4 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:25: PLUS
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:25: PLUS
 				{
 				mPLUS(); 
 
 				}
 				break;
 			case 5 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:30: NUMBER
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:30: NUMBER
 				{
 				mNUMBER(); 
 
 				}
 				break;
 			case 6 :
-				// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:1:37: WHITESPACE
+				// D:\\univer\\simplePascal\\src\\SimplePascal.g:1:37: WHITESPACE
 				{
 				mWHITESPACE(); 
 

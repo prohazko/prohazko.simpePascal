@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 D:\\work\\prohazko.simpePascal\\src\\simpePascal.g 2013-11-05 16:26:51
+// $ANTLR 3.5.1 D:\\univer\\simplePascal\\src\\SimplePascal.g 2013-11-05 16:52:47
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -9,7 +9,7 @@ import org.antlr.runtime.tree.*;
 
 
 @SuppressWarnings("all")
-public class simpePascalParser extends Parser {
+public class SimplePascalParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "DIGIT", "DIV", "MINUS", "MULT", 
 		"NUMBER", "PLUS", "WHITESPACE"
@@ -31,10 +31,10 @@ public class simpePascalParser extends Parser {
 	// delegators
 
 
-	public simpePascalParser(TokenStream input) {
+	public SimplePascalParser(TokenStream input) {
 		this(input, new RecognizerSharedState());
 	}
-	public simpePascalParser(TokenStream input, RecognizerSharedState state) {
+	public SimplePascalParser(TokenStream input, RecognizerSharedState state) {
 		super(input, state);
 	}
 
@@ -46,8 +46,8 @@ public class simpePascalParser extends Parser {
 	public TreeAdaptor getTreeAdaptor() {
 		return adaptor;
 	}
-	@Override public String[] getTokenNames() { return simpePascalParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "D:\\work\\prohazko.simpePascal\\src\\simpePascal.g"; }
+	@Override public String[] getTokenNames() { return SimplePascalParser.tokenNames; }
+	@Override public String getGrammarFileName() { return "D:\\univer\\simplePascal\\src\\SimplePascal.g"; }
 
 
 	public static class expr_return extends ParserRuleReturnScope {
@@ -58,9 +58,9 @@ public class simpePascalParser extends Parser {
 
 
 	// $ANTLR start "expr"
-	// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:21:1: expr : term ( ( PLUS | MINUS ) term )* ;
-	public final simpePascalParser.expr_return expr() throws RecognitionException {
-		simpePascalParser.expr_return retval = new simpePascalParser.expr_return();
+	// D:\\univer\\simplePascal\\src\\SimplePascal.g:21:1: expr : term ( ( PLUS | MINUS ) term )* ;
+	public final SimplePascalParser.expr_return expr() throws RecognitionException {
+		SimplePascalParser.expr_return retval = new SimplePascalParser.expr_return();
 		retval.start = input.LT(1);
 
 		Object root_0 = null;
@@ -72,8 +72,8 @@ public class simpePascalParser extends Parser {
 		Object set2_tree=null;
 
 		try {
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:21:9: ( term ( ( PLUS | MINUS ) term )* )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:21:11: term ( ( PLUS | MINUS ) term )*
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:21:9: ( term ( ( PLUS | MINUS ) term )* )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:21:11: term ( ( PLUS | MINUS ) term )*
 			{
 			root_0 = (Object)adaptor.nil();
 
@@ -84,7 +84,7 @@ public class simpePascalParser extends Parser {
 
 			adaptor.addChild(root_0, term1.getTree());
 
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:21:16: ( ( PLUS | MINUS ) term )*
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:21:16: ( ( PLUS | MINUS ) term )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -95,7 +95,7 @@ public class simpePascalParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:21:18: ( PLUS | MINUS ) term
+					// D:\\univer\\simplePascal\\src\\SimplePascal.g:21:18: ( PLUS | MINUS ) term
 					{
 					set2=input.LT(1);
 					if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
@@ -150,9 +150,9 @@ public class simpePascalParser extends Parser {
 
 
 	// $ANTLR start "term"
-	// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:23:1: term : factor ( ( MULT | DIV ) factor )* ;
-	public final simpePascalParser.term_return term() throws RecognitionException {
-		simpePascalParser.term_return retval = new simpePascalParser.term_return();
+	// D:\\univer\\simplePascal\\src\\SimplePascal.g:23:1: term : factor ( ( MULT | DIV ) factor )* ;
+	public final SimplePascalParser.term_return term() throws RecognitionException {
+		SimplePascalParser.term_return retval = new SimplePascalParser.term_return();
 		retval.start = input.LT(1);
 
 		Object root_0 = null;
@@ -164,8 +164,8 @@ public class simpePascalParser extends Parser {
 		Object set5_tree=null;
 
 		try {
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:23:9: ( factor ( ( MULT | DIV ) factor )* )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:23:11: factor ( ( MULT | DIV ) factor )*
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:23:9: ( factor ( ( MULT | DIV ) factor )* )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:23:11: factor ( ( MULT | DIV ) factor )*
 			{
 			root_0 = (Object)adaptor.nil();
 
@@ -176,7 +176,7 @@ public class simpePascalParser extends Parser {
 
 			adaptor.addChild(root_0, factor4.getTree());
 
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:23:18: ( ( MULT | DIV ) factor )*
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:23:18: ( ( MULT | DIV ) factor )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -187,7 +187,7 @@ public class simpePascalParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:23:20: ( MULT | DIV ) factor
+					// D:\\univer\\simplePascal\\src\\SimplePascal.g:23:20: ( MULT | DIV ) factor
 					{
 					set5=input.LT(1);
 					if ( input.LA(1)==DIV||input.LA(1)==MULT ) {
@@ -242,9 +242,9 @@ public class simpePascalParser extends Parser {
 
 
 	// $ANTLR start "factor"
-	// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:25:1: factor : NUMBER ;
-	public final simpePascalParser.factor_return factor() throws RecognitionException {
-		simpePascalParser.factor_return retval = new simpePascalParser.factor_return();
+	// D:\\univer\\simplePascal\\src\\SimplePascal.g:25:1: factor : NUMBER ;
+	public final SimplePascalParser.factor_return factor() throws RecognitionException {
+		SimplePascalParser.factor_return retval = new SimplePascalParser.factor_return();
 		retval.start = input.LT(1);
 
 		Object root_0 = null;
@@ -254,8 +254,8 @@ public class simpePascalParser extends Parser {
 		Object NUMBER7_tree=null;
 
 		try {
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:25:9: ( NUMBER )
-			// D:\\work\\prohazko.simpePascal\\src\\simpePascal.g:25:11: NUMBER
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:25:9: ( NUMBER )
+			// D:\\univer\\simplePascal\\src\\SimplePascal.g:25:11: NUMBER
 			{
 			root_0 = (Object)adaptor.nil();
 

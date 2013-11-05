@@ -1,4 +1,4 @@
-grammar simpePascal;
+grammar SimplePascal;
 
 options {
   output = AST;

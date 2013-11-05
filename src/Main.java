@@ -19,16 +19,16 @@ public class Main {
     	
     	//String input = args[0];
     	//if()
-    	simpePascalLexer lex = new simpePascalLexer(new ANTLRStringStream(input));
+    	SimplePascalLexer lex = new SimplePascalLexer(new ANTLRStringStream(input));
         CommonTokenStream tokens = new CommonTokenStream(lex);
  
-        simpePascalParser parser = new simpePascalParser(tokens);
+        SimplePascalParser parser = new SimplePascalParser(tokens);
  
 
         
     	
         try {
-            simpePascalParser.expr_return t = parser.expr();
+            SimplePascalParser.expr_return t = parser.expr();
             
             System.out.println(((Tree) t.tree).toStringTree());
         } catch (Exception e)  {
