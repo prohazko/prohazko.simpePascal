@@ -28,9 +28,9 @@ public class Main {
         
     	
         try {
-            SimplePascalParser.expr_return t = parser.expr();
+          //  SimplePascalParser.expr_return t = parser.expr();
             
-            System.out.println(((Tree) t.tree).toStringTree());
+          //  System.out.println(((Tree) t.tree).toStringTree());
         } catch (Exception e)  {
             e.printStackTrace();
         }
