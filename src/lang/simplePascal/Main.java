@@ -1,3 +1,7 @@
+package lang.simplePascal;
+import lang.simplePascal.SimplePascalLexer;
+import lang.simplePascal.SimplePascalParser;
+
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
