@@ -68,6 +68,12 @@ public class SimplePascalEvaluator {
 					executeTree((CommonTree) statement.getChild(1));
 				}
 				break;
+			case SimplePascalParser.PRINT:
+				CommonTree printNode = (CommonTree) statement.getChild(0);
+				System.out.print(printNode.getLine());
+				System.out.print(": print " + printNode.getText() + " - " );
+				System.out.println( evaluateExpression(printNode));
+				break;
 		}
 	}
 	
@@ -97,6 +103,8 @@ public class SimplePascalEvaluator {
 				return evaluateExpression(op1) / evaluateExpression(op2);
 			case SimplePascalParser.MOD:
 				return evaluateExpression(op1) % evaluateExpression(op2);
+			case SimplePascalParser.POW:
+				return (int) Math.pow(evaluateExpression(op1), evaluateExpression(op2));
 			case SimplePascalParser.NEGATION:
 				return -evaluateExpression(op1);
 		}

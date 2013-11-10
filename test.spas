@@ -1,0 +1,16 @@
+program test
+
+begin
+  total := 0;
+  inc := 5;
+  counter := 10;
+
+  while counter do
+    print total;
+    
+    total := total + inc;
+    counter := counter - 1;
+  end while;
+  
+  return total;
+end.

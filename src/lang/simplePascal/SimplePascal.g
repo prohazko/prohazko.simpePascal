@@ -22,7 +22,9 @@ tokens {
 }
 
 program
-  : 'program'!
+  : 'program'! IDENT
+      variableDeclaration*
+    'begin'!
       statement*
       returnStatement
     'end.'!
@@ -31,10 +33,16 @@ program
 returnStatement
   : 'return'^ expression ';'!
   ;
+
+variableDeclaration
+  : 'var'^ IDENT ';'!
+  ;
+  
   
 statement
   : assignStatement
   | ifStatement
+  | printStatement
   | whileStatement
   ;
   
@@ -42,6 +50,10 @@ assignStatement
   : IDENT ASSIGN^ expression ';'!
   ;
   
+printStatement
+  : PRINT^ expression ';'!
+  ;
+    
 ifStatement
   : IF^ expression 'then'!
       block
@@ -73,7 +85,7 @@ unary
   ;
 
 mult
-  : unary ((MULT^ | DIV^ | MOD^) unary)*
+  : unary ((MULT^ | DIV^ | MOD^ | POW^) unary)*
   ;
   
 expression
@@ -90,12 +102,14 @@ fragment LETTER : ('a'..'z' | 'A'..'Z');
 PLUS : '+';
 MINUS : '-';
 MULT : '*';
-DIV : '\\';
+DIV : 'div';
 MOD : 'mod';
+POW : 'pow';
 
 ASSIGN : ':=';
 IF : 'if';
 WHILE : 'while';
+PRINT : 'print';
 
 INTEGER : DIGIT+;
 IDENT :  LETTER (LETTER | DIGIT)*;
