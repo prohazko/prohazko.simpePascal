@@ -1,10 +1,11 @@
 program test
 
-begin
-  total := 0;
-  inc := 5;
-  counter := 10;
+var 
+	total := 0;
+	inc := 5;
+	counter := 20;
 
+begin
   while counter do
     print total;
     

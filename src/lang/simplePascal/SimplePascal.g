@@ -22,9 +22,9 @@ tokens {
 }
 
 program
-  : 'program'! IDENT
-      variableDeclaration*
-    'begin'!
+  : 'program'! IDENT!
+    (VAR^  variableDeclaration*)?
+    BEGIN
       statement*
       returnStatement
     'end.'!
@@ -35,7 +35,7 @@ returnStatement
   ;
 
 variableDeclaration
-  : 'var'^ IDENT ';'!
+  : IDENT (ASSIGN^ expression)? ';'!
   ;
   
   
@@ -110,6 +110,8 @@ ASSIGN : ':=';
 IF : 'if';
 WHILE : 'while';
 PRINT : 'print';
+VAR   : 'var';
+BEGIN : 'begin';
 
 INTEGER : DIGIT+;
 IDENT :  LETTER (LETTER | DIGIT)*;

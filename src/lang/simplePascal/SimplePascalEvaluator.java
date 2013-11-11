@@ -23,16 +23,38 @@ public class SimplePascalEvaluator {
 		program_return programEvaluation = parser.program();
 		CommonTree tree = (CommonTree) programEvaluation.getTree();
 		
-		System.out.println(tree.toStringTree());
+		
 		
 		variables = new HashMap<String, Integer>();
-		
-		return executeProgram(tree);
+		int beginIndex = assignVariables(tree);
+
+		return executeProgram(tree, beginIndex);
 	}
 	
+	private static int assignVariables(CommonTree root) {
+		int beginIndex = 0;
+		CommonTree assignTree = (CommonTree) root.getChild(0);
+		while(assignTree.getToken().getType() == SimplePascalParser.ASSIGN ){
+			
+			String id = assignTree.getChild(0).getText();
+			int value = evaluateExpression((CommonTree) assignTree.getChild(1));
 
-	private static int executeProgram(CommonTree root) {
-		executeTree(root);
+			variables.put(id, value);
+
+			beginIndex++;
+			assignTree = (CommonTree) root.getChild(beginIndex);
+		}
+
+		return beginIndex;
+	}
+
+	private static int executeProgram(CommonTree root, int begin) {
+		
+		for (int i = begin; i < root.getChildCount(); i++) {
+			CommonTree c = (CommonTree) root.getChild(i);
+
+			executeStatement(c);
+		}
 		
 		CommonTree returnStatement = (CommonTree) root.getChild(root.getChildCount() - 1);
 		return evaluateExpression((CommonTree) returnStatement.getChild(0));

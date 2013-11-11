@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g 2013-11-10 15:07:56
+// $ANTLR 3.5.1 D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g 2013-11-11 17:35:25
 
   package lang.simplePascal;
 
@@ -16,15 +16,12 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings("all")
 public class SimplePascalParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "BLOCK", "DIGIT", "DIV", 
-		"IDENT", "IF", "INTEGER", "LETTER", "MINUS", "MOD", "MULT", "NEGATION", 
-		"PLUS", "POW", "PRINT", "WHILE", "WHITESPACE", "'('", "')'", "';'", "'begin'", 
-		"'do'", "'else'", "'end'", "'end.'", "'program'", "'return'", "'then'", 
-		"'var'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "BEGIN", "BLOCK", "DIGIT", 
+		"DIV", "IDENT", "IF", "INTEGER", "LETTER", "MINUS", "MOD", "MULT", "NEGATION", 
+		"PLUS", "POW", "PRINT", "VAR", "WHILE", "WHITESPACE", "'('", "')'", "';'", 
+		"'do'", "'else'", "'end'", "'end.'", "'program'", "'return'", "'then'"
 	};
 	public static final int EOF=-1;
-	public static final int T__21=21;
-	public static final int T__22=22;
 	public static final int T__23=23;
 	public static final int T__24=24;
 	public static final int T__25=25;
@@ -36,22 +33,24 @@ public class SimplePascalParser extends Parser {
 	public static final int T__31=31;
 	public static final int T__32=32;
 	public static final int ASSIGN=4;
-	public static final int BLOCK=5;
-	public static final int DIGIT=6;
-	public static final int DIV=7;
-	public static final int IDENT=8;
-	public static final int IF=9;
-	public static final int INTEGER=10;
-	public static final int LETTER=11;
-	public static final int MINUS=12;
-	public static final int MOD=13;
-	public static final int MULT=14;
-	public static final int NEGATION=15;
-	public static final int PLUS=16;
-	public static final int POW=17;
-	public static final int PRINT=18;
-	public static final int WHILE=19;
-	public static final int WHITESPACE=20;
+	public static final int BEGIN=5;
+	public static final int BLOCK=6;
+	public static final int DIGIT=7;
+	public static final int DIV=8;
+	public static final int IDENT=9;
+	public static final int IF=10;
+	public static final int INTEGER=11;
+	public static final int LETTER=12;
+	public static final int MINUS=13;
+	public static final int MOD=14;
+	public static final int MULT=15;
+	public static final int NEGATION=16;
+	public static final int PLUS=17;
+	public static final int POW=18;
+	public static final int PRINT=19;
+	public static final int VAR=20;
+	public static final int WHILE=21;
+	public static final int WHITESPACE=22;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -88,7 +87,7 @@ public class SimplePascalParser extends Parser {
 
 
 	// $ANTLR start "program"
-	// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:24:1: program : 'program' ! IDENT ( variableDeclaration )* 'begin' ! ( statement )* returnStatement 'end.' !;
+	// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:24:1: program : 'program' ! IDENT ! ( VAR ^ ( variableDeclaration )* )? BEGIN ( statement )* returnStatement 'end.' !;
 	public final SimplePascalParser.program_return program() throws RecognitionException {
 		SimplePascalParser.program_return retval = new SimplePascalParser.program_return();
 		retval.start = input.LT(1);
@@ -97,93 +96,116 @@ public class SimplePascalParser extends Parser {
 
 		Token string_literal1=null;
 		Token IDENT2=null;
-		Token string_literal4=null;
-		Token string_literal7=null;
-		ParserRuleReturnScope variableDeclaration3 =null;
-		ParserRuleReturnScope statement5 =null;
-		ParserRuleReturnScope returnStatement6 =null;
+		Token VAR3=null;
+		Token BEGIN5=null;
+		Token string_literal8=null;
+		ParserRuleReturnScope variableDeclaration4 =null;
+		ParserRuleReturnScope statement6 =null;
+		ParserRuleReturnScope returnStatement7 =null;
 
 		CommonTree string_literal1_tree=null;
 		CommonTree IDENT2_tree=null;
-		CommonTree string_literal4_tree=null;
-		CommonTree string_literal7_tree=null;
+		CommonTree VAR3_tree=null;
+		CommonTree BEGIN5_tree=null;
+		CommonTree string_literal8_tree=null;
 
 		try {
-			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:25:3: ( 'program' ! IDENT ( variableDeclaration )* 'begin' ! ( statement )* returnStatement 'end.' !)
-			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:25:5: 'program' ! IDENT ( variableDeclaration )* 'begin' ! ( statement )* returnStatement 'end.' !
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:25:3: ( 'program' ! IDENT ! ( VAR ^ ( variableDeclaration )* )? BEGIN ( statement )* returnStatement 'end.' !)
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:25:5: 'program' ! IDENT ! ( VAR ^ ( variableDeclaration )* )? BEGIN ( statement )* returnStatement 'end.' !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			string_literal1=(Token)match(input,29,FOLLOW_29_in_program84); if (state.failed) return retval;
+			string_literal1=(Token)match(input,30,FOLLOW_30_in_program84); if (state.failed) return retval;
 			IDENT2=(Token)match(input,IDENT,FOLLOW_IDENT_in_program87); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			IDENT2_tree = (CommonTree)adaptor.create(IDENT2);
-			adaptor.addChild(root_0, IDENT2_tree);
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:5: ( VAR ^ ( variableDeclaration )* )?
+			int alt2=2;
+			int LA2_0 = input.LA(1);
+			if ( (LA2_0==VAR) ) {
+				alt2=1;
 			}
-
-			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:7: ( variableDeclaration )*
-			loop1:
-			while (true) {
-				int alt1=2;
-				int LA1_0 = input.LA(1);
-				if ( (LA1_0==32) ) {
-					alt1=1;
-				}
-
-				switch (alt1) {
+			switch (alt2) {
 				case 1 :
-					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:7: variableDeclaration
+					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:6: VAR ^ ( variableDeclaration )*
 					{
-					pushFollow(FOLLOW_variableDeclaration_in_program95);
-					variableDeclaration3=variableDeclaration();
-					state._fsp--;
-					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, variableDeclaration3.getTree());
+					VAR3=(Token)match(input,VAR,FOLLOW_VAR_in_program95); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					VAR3_tree = (CommonTree)adaptor.create(VAR3);
+					root_0 = (CommonTree)adaptor.becomeRoot(VAR3_tree, root_0);
+					}
+
+					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:12: ( variableDeclaration )*
+					loop1:
+					while (true) {
+						int alt1=2;
+						int LA1_0 = input.LA(1);
+						if ( (LA1_0==IDENT) ) {
+							alt1=1;
+						}
+
+						switch (alt1) {
+						case 1 :
+							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:26:12: variableDeclaration
+							{
+							pushFollow(FOLLOW_variableDeclaration_in_program99);
+							variableDeclaration4=variableDeclaration();
+							state._fsp--;
+							if (state.failed) return retval;
+							if ( state.backtracking==0 ) adaptor.addChild(root_0, variableDeclaration4.getTree());
+
+							}
+							break;
+
+						default :
+							break loop1;
+						}
+					}
 
 					}
 					break;
 
-				default :
-					break loop1;
-				}
 			}
 
-			string_literal4=(Token)match(input,24,FOLLOW_24_in_program102); if (state.failed) return retval;
+			BEGIN5=(Token)match(input,BEGIN,FOLLOW_BEGIN_in_program108); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			BEGIN5_tree = (CommonTree)adaptor.create(BEGIN5);
+			adaptor.addChild(root_0, BEGIN5_tree);
+			}
+
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:28:7: ( statement )*
-			loop2:
+			loop3:
 			while (true) {
-				int alt2=2;
-				int LA2_0 = input.LA(1);
-				if ( ((LA2_0 >= IDENT && LA2_0 <= IF)||(LA2_0 >= PRINT && LA2_0 <= WHILE)) ) {
-					alt2=1;
+				int alt3=2;
+				int LA3_0 = input.LA(1);
+				if ( ((LA3_0 >= IDENT && LA3_0 <= IF)||LA3_0==PRINT||LA3_0==WHILE) ) {
+					alt3=1;
 				}
 
-				switch (alt2) {
+				switch (alt3) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:28:7: statement
 					{
-					pushFollow(FOLLOW_statement_in_program111);
-					statement5=statement();
+					pushFollow(FOLLOW_statement_in_program116);
+					statement6=statement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, statement5.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, statement6.getTree());
 
 					}
 					break;
 
 				default :
-					break loop2;
+					break loop3;
 				}
 			}
 
-			pushFollow(FOLLOW_returnStatement_in_program120);
-			returnStatement6=returnStatement();
+			pushFollow(FOLLOW_returnStatement_in_program125);
+			returnStatement7=returnStatement();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, returnStatement6.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, returnStatement7.getTree());
 
-			string_literal7=(Token)match(input,28,FOLLOW_28_in_program126); if (state.failed) return retval;
+			string_literal8=(Token)match(input,29,FOLLOW_29_in_program131); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -221,12 +243,12 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token string_literal8=null;
-		Token char_literal10=null;
-		ParserRuleReturnScope expression9 =null;
+		Token string_literal9=null;
+		Token char_literal11=null;
+		ParserRuleReturnScope expression10 =null;
 
-		CommonTree string_literal8_tree=null;
-		CommonTree char_literal10_tree=null;
+		CommonTree string_literal9_tree=null;
+		CommonTree char_literal11_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:34:3: ( 'return' ^ expression ';' !)
@@ -235,19 +257,19 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			string_literal8=(Token)match(input,30,FOLLOW_30_in_returnStatement142); if (state.failed) return retval;
+			string_literal9=(Token)match(input,31,FOLLOW_31_in_returnStatement147); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			string_literal8_tree = (CommonTree)adaptor.create(string_literal8);
-			root_0 = (CommonTree)adaptor.becomeRoot(string_literal8_tree, root_0);
+			string_literal9_tree = (CommonTree)adaptor.create(string_literal9);
+			root_0 = (CommonTree)adaptor.becomeRoot(string_literal9_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_expression_in_returnStatement145);
-			expression9=expression();
+			pushFollow(FOLLOW_expression_in_returnStatement150);
+			expression10=expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression9.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression10.getTree());
 
-			char_literal10=(Token)match(input,23,FOLLOW_23_in_returnStatement147); if (state.failed) return retval;
+			char_literal11=(Token)match(input,25,FOLLOW_25_in_returnStatement152); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -278,41 +300,63 @@ public class SimplePascalParser extends Parser {
 
 
 	// $ANTLR start "variableDeclaration"
-	// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:37:1: variableDeclaration : 'var' ^ IDENT ';' !;
+	// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:37:1: variableDeclaration : IDENT ( ASSIGN ^ expression )? ';' !;
 	public final SimplePascalParser.variableDeclaration_return variableDeclaration() throws RecognitionException {
 		SimplePascalParser.variableDeclaration_return retval = new SimplePascalParser.variableDeclaration_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token string_literal11=null;
 		Token IDENT12=null;
-		Token char_literal13=null;
+		Token ASSIGN13=null;
+		Token char_literal15=null;
+		ParserRuleReturnScope expression14 =null;
 
-		CommonTree string_literal11_tree=null;
 		CommonTree IDENT12_tree=null;
-		CommonTree char_literal13_tree=null;
+		CommonTree ASSIGN13_tree=null;
+		CommonTree char_literal15_tree=null;
 
 		try {
-			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:3: ( 'var' ^ IDENT ';' !)
-			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:5: 'var' ^ IDENT ';' !
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:3: ( IDENT ( ASSIGN ^ expression )? ';' !)
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:5: IDENT ( ASSIGN ^ expression )? ';' !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			string_literal11=(Token)match(input,32,FOLLOW_32_in_variableDeclaration161); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			string_literal11_tree = (CommonTree)adaptor.create(string_literal11);
-			root_0 = (CommonTree)adaptor.becomeRoot(string_literal11_tree, root_0);
-			}
-
-			IDENT12=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaration164); if (state.failed) return retval;
+			IDENT12=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaration166); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			IDENT12_tree = (CommonTree)adaptor.create(IDENT12);
 			adaptor.addChild(root_0, IDENT12_tree);
 			}
 
-			char_literal13=(Token)match(input,23,FOLLOW_23_in_variableDeclaration166); if (state.failed) return retval;
+			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:11: ( ASSIGN ^ expression )?
+			int alt4=2;
+			int LA4_0 = input.LA(1);
+			if ( (LA4_0==ASSIGN) ) {
+				alt4=1;
+			}
+			switch (alt4) {
+				case 1 :
+					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:38:12: ASSIGN ^ expression
+					{
+					ASSIGN13=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration169); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					ASSIGN13_tree = (CommonTree)adaptor.create(ASSIGN13);
+					root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN13_tree, root_0);
+					}
+
+					pushFollow(FOLLOW_expression_in_variableDeclaration172);
+					expression14=expression();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression14.getTree());
+
+					}
+					break;
+
+			}
+
+			char_literal15=(Token)match(input,25,FOLLOW_25_in_variableDeclaration176); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -350,54 +394,54 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope assignStatement14 =null;
-		ParserRuleReturnScope ifStatement15 =null;
-		ParserRuleReturnScope printStatement16 =null;
-		ParserRuleReturnScope whileStatement17 =null;
+		ParserRuleReturnScope assignStatement16 =null;
+		ParserRuleReturnScope ifStatement17 =null;
+		ParserRuleReturnScope printStatement18 =null;
+		ParserRuleReturnScope whileStatement19 =null;
 
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:43:3: ( assignStatement | ifStatement | printStatement | whileStatement )
-			int alt3=4;
+			int alt5=4;
 			switch ( input.LA(1) ) {
 			case IDENT:
 				{
-				alt3=1;
+				alt5=1;
 				}
 				break;
 			case IF:
 				{
-				alt3=2;
+				alt5=2;
 				}
 				break;
 			case PRINT:
 				{
-				alt3=3;
+				alt5=3;
 				}
 				break;
 			case WHILE:
 				{
-				alt3=4;
+				alt5=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 3, 0, input);
+					new NoViableAltException("", 5, 0, input);
 				throw nvae;
 			}
-			switch (alt3) {
+			switch (alt5) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:43:5: assignStatement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_assignStatement_in_statement185);
-					assignStatement14=assignStatement();
+					pushFollow(FOLLOW_assignStatement_in_statement195);
+					assignStatement16=assignStatement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, assignStatement14.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, assignStatement16.getTree());
 
 					}
 					break;
@@ -407,11 +451,11 @@ public class SimplePascalParser extends Parser {
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_ifStatement_in_statement191);
-					ifStatement15=ifStatement();
+					pushFollow(FOLLOW_ifStatement_in_statement201);
+					ifStatement17=ifStatement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, ifStatement15.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, ifStatement17.getTree());
 
 					}
 					break;
@@ -421,11 +465,11 @@ public class SimplePascalParser extends Parser {
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_printStatement_in_statement197);
-					printStatement16=printStatement();
+					pushFollow(FOLLOW_printStatement_in_statement207);
+					printStatement18=printStatement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, printStatement16.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, printStatement18.getTree());
 
 					}
 					break;
@@ -435,11 +479,11 @@ public class SimplePascalParser extends Parser {
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_whileStatement_in_statement203);
-					whileStatement17=whileStatement();
+					pushFollow(FOLLOW_whileStatement_in_statement213);
+					whileStatement19=whileStatement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, whileStatement17.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, whileStatement19.getTree());
 
 					}
 					break;
@@ -480,14 +524,14 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token IDENT18=null;
-		Token ASSIGN19=null;
-		Token char_literal21=null;
-		ParserRuleReturnScope expression20 =null;
+		Token IDENT20=null;
+		Token ASSIGN21=null;
+		Token char_literal23=null;
+		ParserRuleReturnScope expression22 =null;
 
-		CommonTree IDENT18_tree=null;
-		CommonTree ASSIGN19_tree=null;
-		CommonTree char_literal21_tree=null;
+		CommonTree IDENT20_tree=null;
+		CommonTree ASSIGN21_tree=null;
+		CommonTree char_literal23_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:50:3: ( IDENT ASSIGN ^ expression ';' !)
@@ -496,25 +540,25 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			IDENT18=(Token)match(input,IDENT,FOLLOW_IDENT_in_assignStatement218); if (state.failed) return retval;
+			IDENT20=(Token)match(input,IDENT,FOLLOW_IDENT_in_assignStatement228); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			IDENT18_tree = (CommonTree)adaptor.create(IDENT18);
-			adaptor.addChild(root_0, IDENT18_tree);
+			IDENT20_tree = (CommonTree)adaptor.create(IDENT20);
+			adaptor.addChild(root_0, IDENT20_tree);
 			}
 
-			ASSIGN19=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignStatement220); if (state.failed) return retval;
+			ASSIGN21=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignStatement230); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			ASSIGN19_tree = (CommonTree)adaptor.create(ASSIGN19);
-			root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN19_tree, root_0);
+			ASSIGN21_tree = (CommonTree)adaptor.create(ASSIGN21);
+			root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN21_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_expression_in_assignStatement223);
-			expression20=expression();
+			pushFollow(FOLLOW_expression_in_assignStatement233);
+			expression22=expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression20.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression22.getTree());
 
-			char_literal21=(Token)match(input,23,FOLLOW_23_in_assignStatement225); if (state.failed) return retval;
+			char_literal23=(Token)match(input,25,FOLLOW_25_in_assignStatement235); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -552,12 +596,12 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token PRINT22=null;
-		Token char_literal24=null;
-		ParserRuleReturnScope expression23 =null;
+		Token PRINT24=null;
+		Token char_literal26=null;
+		ParserRuleReturnScope expression25 =null;
 
-		CommonTree PRINT22_tree=null;
-		CommonTree char_literal24_tree=null;
+		CommonTree PRINT24_tree=null;
+		CommonTree char_literal26_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:54:3: ( PRINT ^ expression ';' !)
@@ -566,19 +610,19 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			PRINT22=(Token)match(input,PRINT,FOLLOW_PRINT_in_printStatement241); if (state.failed) return retval;
+			PRINT24=(Token)match(input,PRINT,FOLLOW_PRINT_in_printStatement251); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			PRINT22_tree = (CommonTree)adaptor.create(PRINT22);
-			root_0 = (CommonTree)adaptor.becomeRoot(PRINT22_tree, root_0);
+			PRINT24_tree = (CommonTree)adaptor.create(PRINT24);
+			root_0 = (CommonTree)adaptor.becomeRoot(PRINT24_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_expression_in_printStatement244);
-			expression23=expression();
+			pushFollow(FOLLOW_expression_in_printStatement254);
+			expression25=expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression23.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression25.getTree());
 
-			char_literal24=(Token)match(input,23,FOLLOW_23_in_printStatement246); if (state.failed) return retval;
+			char_literal26=(Token)match(input,25,FOLLOW_25_in_printStatement256); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -616,22 +660,22 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token IF25=null;
-		Token string_literal27=null;
+		Token IF27=null;
 		Token string_literal29=null;
 		Token string_literal31=null;
-		Token string_literal32=null;
-		Token char_literal33=null;
-		ParserRuleReturnScope expression26 =null;
-		ParserRuleReturnScope block28 =null;
+		Token string_literal33=null;
+		Token string_literal34=null;
+		Token char_literal35=null;
+		ParserRuleReturnScope expression28 =null;
 		ParserRuleReturnScope block30 =null;
+		ParserRuleReturnScope block32 =null;
 
-		CommonTree IF25_tree=null;
-		CommonTree string_literal27_tree=null;
+		CommonTree IF27_tree=null;
 		CommonTree string_literal29_tree=null;
 		CommonTree string_literal31_tree=null;
-		CommonTree string_literal32_tree=null;
-		CommonTree char_literal33_tree=null;
+		CommonTree string_literal33_tree=null;
+		CommonTree string_literal34_tree=null;
+		CommonTree char_literal35_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:58:3: ( IF ^ expression 'then' ! block ( 'else' ! block )? 'end' ! 'if' ! ';' !)
@@ -640,50 +684,50 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			IF25=(Token)match(input,IF,FOLLOW_IF_in_ifStatement264); if (state.failed) return retval;
+			IF27=(Token)match(input,IF,FOLLOW_IF_in_ifStatement274); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			IF25_tree = (CommonTree)adaptor.create(IF25);
-			root_0 = (CommonTree)adaptor.becomeRoot(IF25_tree, root_0);
+			IF27_tree = (CommonTree)adaptor.create(IF27);
+			root_0 = (CommonTree)adaptor.becomeRoot(IF27_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_expression_in_ifStatement267);
-			expression26=expression();
+			pushFollow(FOLLOW_expression_in_ifStatement277);
+			expression28=expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression26.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression28.getTree());
 
-			string_literal27=(Token)match(input,31,FOLLOW_31_in_ifStatement269); if (state.failed) return retval;
-			pushFollow(FOLLOW_block_in_ifStatement278);
-			block28=block();
+			string_literal29=(Token)match(input,32,FOLLOW_32_in_ifStatement279); if (state.failed) return retval;
+			pushFollow(FOLLOW_block_in_ifStatement288);
+			block30=block();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, block28.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, block30.getTree());
 
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:60:5: ( 'else' ! block )?
-			int alt4=2;
-			int LA4_0 = input.LA(1);
-			if ( (LA4_0==26) ) {
-				alt4=1;
+			int alt6=2;
+			int LA6_0 = input.LA(1);
+			if ( (LA6_0==27) ) {
+				alt6=1;
 			}
-			switch (alt4) {
+			switch (alt6) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:60:6: 'else' ! block
 					{
-					string_literal29=(Token)match(input,26,FOLLOW_26_in_ifStatement285); if (state.failed) return retval;
-					pushFollow(FOLLOW_block_in_ifStatement294);
-					block30=block();
+					string_literal31=(Token)match(input,27,FOLLOW_27_in_ifStatement295); if (state.failed) return retval;
+					pushFollow(FOLLOW_block_in_ifStatement304);
+					block32=block();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, block30.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, block32.getTree());
 
 					}
 					break;
 
 			}
 
-			string_literal31=(Token)match(input,27,FOLLOW_27_in_ifStatement302); if (state.failed) return retval;
-			string_literal32=(Token)match(input,IF,FOLLOW_IF_in_ifStatement305); if (state.failed) return retval;
-			char_literal33=(Token)match(input,23,FOLLOW_23_in_ifStatement308); if (state.failed) return retval;
+			string_literal33=(Token)match(input,28,FOLLOW_28_in_ifStatement312); if (state.failed) return retval;
+			string_literal34=(Token)match(input,IF,FOLLOW_IF_in_ifStatement315); if (state.failed) return retval;
+			char_literal35=(Token)match(input,25,FOLLOW_25_in_ifStatement318); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -721,19 +765,19 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token WHILE34=null;
-		Token string_literal36=null;
+		Token WHILE36=null;
 		Token string_literal38=null;
-		Token string_literal39=null;
-		Token char_literal40=null;
-		ParserRuleReturnScope expression35 =null;
-		ParserRuleReturnScope block37 =null;
+		Token string_literal40=null;
+		Token string_literal41=null;
+		Token char_literal42=null;
+		ParserRuleReturnScope expression37 =null;
+		ParserRuleReturnScope block39 =null;
 
-		CommonTree WHILE34_tree=null;
-		CommonTree string_literal36_tree=null;
+		CommonTree WHILE36_tree=null;
 		CommonTree string_literal38_tree=null;
-		CommonTree string_literal39_tree=null;
-		CommonTree char_literal40_tree=null;
+		CommonTree string_literal40_tree=null;
+		CommonTree string_literal41_tree=null;
+		CommonTree char_literal42_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:66:3: ( WHILE ^ expression 'do' ! block 'end' ! 'while' ! ';' !)
@@ -742,28 +786,28 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			WHILE34=(Token)match(input,WHILE,FOLLOW_WHILE_in_whileStatement324); if (state.failed) return retval;
+			WHILE36=(Token)match(input,WHILE,FOLLOW_WHILE_in_whileStatement334); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			WHILE34_tree = (CommonTree)adaptor.create(WHILE34);
-			root_0 = (CommonTree)adaptor.becomeRoot(WHILE34_tree, root_0);
+			WHILE36_tree = (CommonTree)adaptor.create(WHILE36);
+			root_0 = (CommonTree)adaptor.becomeRoot(WHILE36_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_expression_in_whileStatement327);
-			expression35=expression();
+			pushFollow(FOLLOW_expression_in_whileStatement337);
+			expression37=expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression35.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression37.getTree());
 
-			string_literal36=(Token)match(input,25,FOLLOW_25_in_whileStatement329); if (state.failed) return retval;
-			pushFollow(FOLLOW_block_in_whileStatement338);
-			block37=block();
+			string_literal38=(Token)match(input,26,FOLLOW_26_in_whileStatement339); if (state.failed) return retval;
+			pushFollow(FOLLOW_block_in_whileStatement348);
+			block39=block();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, block37.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, block39.getTree());
 
-			string_literal38=(Token)match(input,27,FOLLOW_27_in_whileStatement344); if (state.failed) return retval;
-			string_literal39=(Token)match(input,WHILE,FOLLOW_WHILE_in_whileStatement347); if (state.failed) return retval;
-			char_literal40=(Token)match(input,23,FOLLOW_23_in_whileStatement350); if (state.failed) return retval;
+			string_literal40=(Token)match(input,28,FOLLOW_28_in_whileStatement354); if (state.failed) return retval;
+			string_literal41=(Token)match(input,WHILE,FOLLOW_WHILE_in_whileStatement357); if (state.failed) return retval;
+			char_literal42=(Token)match(input,25,FOLLOW_25_in_whileStatement360); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -801,7 +845,7 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope statement41 =null;
+		ParserRuleReturnScope statement43 =null;
 
 		RewriteRuleSubtreeStream stream_statement=new RewriteRuleSubtreeStream(adaptor,"rule statement");
 
@@ -810,28 +854,28 @@ public class SimplePascalParser extends Parser {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:72:5: ( statement )*
 			{
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:72:5: ( statement )*
-			loop5:
+			loop7:
 			while (true) {
-				int alt5=2;
-				int LA5_0 = input.LA(1);
-				if ( ((LA5_0 >= IDENT && LA5_0 <= IF)||(LA5_0 >= PRINT && LA5_0 <= WHILE)) ) {
-					alt5=1;
+				int alt7=2;
+				int LA7_0 = input.LA(1);
+				if ( ((LA7_0 >= IDENT && LA7_0 <= IF)||LA7_0==PRINT||LA7_0==WHILE) ) {
+					alt7=1;
 				}
 
-				switch (alt5) {
+				switch (alt7) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:72:5: statement
 					{
-					pushFollow(FOLLOW_statement_in_block366);
-					statement41=statement();
+					pushFollow(FOLLOW_statement_in_block376);
+					statement43=statement();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_statement.add(statement41.getTree());
+					if ( state.backtracking==0 ) stream_statement.add(statement43.getTree());
 					}
 					break;
 
 				default :
-					break loop5;
+					break loop7;
 				}
 			}
 
@@ -905,53 +949,53 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token IDENT42=null;
-		Token char_literal43=null;
+		Token IDENT44=null;
 		Token char_literal45=null;
-		Token INTEGER46=null;
-		ParserRuleReturnScope expression44 =null;
+		Token char_literal47=null;
+		Token INTEGER48=null;
+		ParserRuleReturnScope expression46 =null;
 
-		CommonTree IDENT42_tree=null;
-		CommonTree char_literal43_tree=null;
+		CommonTree IDENT44_tree=null;
 		CommonTree char_literal45_tree=null;
-		CommonTree INTEGER46_tree=null;
+		CommonTree char_literal47_tree=null;
+		CommonTree INTEGER48_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:78:3: ( IDENT | '(' expression ')' | INTEGER )
-			int alt6=3;
+			int alt8=3;
 			switch ( input.LA(1) ) {
 			case IDENT:
 				{
-				alt6=1;
+				alt8=1;
 				}
 				break;
-			case 21:
+			case 23:
 				{
-				alt6=2;
+				alt8=2;
 				}
 				break;
 			case INTEGER:
 				{
-				alt6=3;
+				alt8=3;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 6, 0, input);
+					new NoViableAltException("", 8, 0, input);
 				throw nvae;
 			}
-			switch (alt6) {
+			switch (alt8) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:78:5: IDENT
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					IDENT42=(Token)match(input,IDENT,FOLLOW_IDENT_in_term395); if (state.failed) return retval;
+					IDENT44=(Token)match(input,IDENT,FOLLOW_IDENT_in_term405); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					IDENT42_tree = (CommonTree)adaptor.create(IDENT42);
-					adaptor.addChild(root_0, IDENT42_tree);
+					IDENT44_tree = (CommonTree)adaptor.create(IDENT44);
+					adaptor.addChild(root_0, IDENT44_tree);
 					}
 
 					}
@@ -962,22 +1006,22 @@ public class SimplePascalParser extends Parser {
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					char_literal43=(Token)match(input,21,FOLLOW_21_in_term401); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					char_literal43_tree = (CommonTree)adaptor.create(char_literal43);
-					adaptor.addChild(root_0, char_literal43_tree);
-					}
-
-					pushFollow(FOLLOW_expression_in_term403);
-					expression44=expression();
-					state._fsp--;
-					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression44.getTree());
-
-					char_literal45=(Token)match(input,22,FOLLOW_22_in_term405); if (state.failed) return retval;
+					char_literal45=(Token)match(input,23,FOLLOW_23_in_term411); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					char_literal45_tree = (CommonTree)adaptor.create(char_literal45);
 					adaptor.addChild(root_0, char_literal45_tree);
+					}
+
+					pushFollow(FOLLOW_expression_in_term413);
+					expression46=expression();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression46.getTree());
+
+					char_literal47=(Token)match(input,24,FOLLOW_24_in_term415); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					char_literal47_tree = (CommonTree)adaptor.create(char_literal47);
+					adaptor.addChild(root_0, char_literal47_tree);
 					}
 
 					}
@@ -988,10 +1032,10 @@ public class SimplePascalParser extends Parser {
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INTEGER46=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_term411); if (state.failed) return retval;
+					INTEGER48=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_term421); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					INTEGER46_tree = (CommonTree)adaptor.create(INTEGER46);
-					adaptor.addChild(root_0, INTEGER46_tree);
+					INTEGER48_tree = (CommonTree)adaptor.create(INTEGER48);
+					adaptor.addChild(root_0, INTEGER48_tree);
 					}
 
 					}
@@ -1033,11 +1077,11 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token char_literal47=null;
-		ParserRuleReturnScope negation48 =null;
-		ParserRuleReturnScope term49 =null;
+		Token char_literal49=null;
+		ParserRuleReturnScope negation50 =null;
+		ParserRuleReturnScope term51 =null;
 
-		CommonTree char_literal47_tree=null;
+		CommonTree char_literal49_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:84:3: ( ( '+' !| negation ^)* term )
@@ -1047,45 +1091,45 @@ public class SimplePascalParser extends Parser {
 
 
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:84:5: ( '+' !| negation ^)*
-			loop7:
+			loop9:
 			while (true) {
-				int alt7=3;
-				int LA7_0 = input.LA(1);
-				if ( (LA7_0==PLUS) ) {
-					alt7=1;
+				int alt9=3;
+				int LA9_0 = input.LA(1);
+				if ( (LA9_0==PLUS) ) {
+					alt9=1;
 				}
-				else if ( (LA7_0==MINUS) ) {
-					alt7=2;
+				else if ( (LA9_0==MINUS) ) {
+					alt9=2;
 				}
 
-				switch (alt7) {
+				switch (alt9) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:84:6: '+' !
 					{
-					char_literal47=(Token)match(input,PLUS,FOLLOW_PLUS_in_unary427); if (state.failed) return retval;
+					char_literal49=(Token)match(input,PLUS,FOLLOW_PLUS_in_unary437); if (state.failed) return retval;
 					}
 					break;
 				case 2 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:84:13: negation ^
 					{
-					pushFollow(FOLLOW_negation_in_unary432);
-					negation48=negation();
+					pushFollow(FOLLOW_negation_in_unary442);
+					negation50=negation();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(negation48.getTree(), root_0);
+					if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(negation50.getTree(), root_0);
 					}
 					break;
 
 				default :
-					break loop7;
+					break loop9;
 				}
 			}
 
-			pushFollow(FOLLOW_term_in_unary437);
-			term49=term();
+			pushFollow(FOLLOW_term_in_unary447);
+			term51=term();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, term49.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, term51.getTree());
 
 			}
 
@@ -1124,17 +1168,17 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token MULT51=null;
-		Token DIV52=null;
-		Token MOD53=null;
-		Token POW54=null;
-		ParserRuleReturnScope unary50 =null;
-		ParserRuleReturnScope unary55 =null;
+		Token MULT53=null;
+		Token DIV54=null;
+		Token MOD55=null;
+		Token POW56=null;
+		ParserRuleReturnScope unary52 =null;
+		ParserRuleReturnScope unary57 =null;
 
-		CommonTree MULT51_tree=null;
-		CommonTree DIV52_tree=null;
-		CommonTree MOD53_tree=null;
-		CommonTree POW54_tree=null;
+		CommonTree MULT53_tree=null;
+		CommonTree DIV54_tree=null;
+		CommonTree MOD55_tree=null;
+		CommonTree POW56_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:3: ( unary ( ( MULT ^| DIV ^| MOD ^| POW ^) unary )* )
@@ -1143,62 +1187,62 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_unary_in_mult450);
-			unary50=unary();
+			pushFollow(FOLLOW_unary_in_mult460);
+			unary52=unary();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, unary50.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, unary52.getTree());
 
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:11: ( ( MULT ^| DIV ^| MOD ^| POW ^) unary )*
-			loop9:
+			loop11:
 			while (true) {
-				int alt9=2;
-				int LA9_0 = input.LA(1);
-				if ( (LA9_0==DIV||(LA9_0 >= MOD && LA9_0 <= MULT)||LA9_0==POW) ) {
-					alt9=1;
+				int alt11=2;
+				int LA11_0 = input.LA(1);
+				if ( (LA11_0==DIV||(LA11_0 >= MOD && LA11_0 <= MULT)||LA11_0==POW) ) {
+					alt11=1;
 				}
 
-				switch (alt9) {
+				switch (alt11) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:12: ( MULT ^| DIV ^| MOD ^| POW ^) unary
 					{
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:12: ( MULT ^| DIV ^| MOD ^| POW ^)
-					int alt8=4;
+					int alt10=4;
 					switch ( input.LA(1) ) {
 					case MULT:
 						{
-						alt8=1;
+						alt10=1;
 						}
 						break;
 					case DIV:
 						{
-						alt8=2;
+						alt10=2;
 						}
 						break;
 					case MOD:
 						{
-						alt8=3;
+						alt10=3;
 						}
 						break;
 					case POW:
 						{
-						alt8=4;
+						alt10=4;
 						}
 						break;
 					default:
 						if (state.backtracking>0) {state.failed=true; return retval;}
 						NoViableAltException nvae =
-							new NoViableAltException("", 8, 0, input);
+							new NoViableAltException("", 10, 0, input);
 						throw nvae;
 					}
-					switch (alt8) {
+					switch (alt10) {
 						case 1 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:13: MULT ^
 							{
-							MULT51=(Token)match(input,MULT,FOLLOW_MULT_in_mult454); if (state.failed) return retval;
+							MULT53=(Token)match(input,MULT,FOLLOW_MULT_in_mult464); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							MULT51_tree = (CommonTree)adaptor.create(MULT51);
-							root_0 = (CommonTree)adaptor.becomeRoot(MULT51_tree, root_0);
+							MULT53_tree = (CommonTree)adaptor.create(MULT53);
+							root_0 = (CommonTree)adaptor.becomeRoot(MULT53_tree, root_0);
 							}
 
 							}
@@ -1206,10 +1250,10 @@ public class SimplePascalParser extends Parser {
 						case 2 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:21: DIV ^
 							{
-							DIV52=(Token)match(input,DIV,FOLLOW_DIV_in_mult459); if (state.failed) return retval;
+							DIV54=(Token)match(input,DIV,FOLLOW_DIV_in_mult469); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							DIV52_tree = (CommonTree)adaptor.create(DIV52);
-							root_0 = (CommonTree)adaptor.becomeRoot(DIV52_tree, root_0);
+							DIV54_tree = (CommonTree)adaptor.create(DIV54);
+							root_0 = (CommonTree)adaptor.becomeRoot(DIV54_tree, root_0);
 							}
 
 							}
@@ -1217,10 +1261,10 @@ public class SimplePascalParser extends Parser {
 						case 3 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:28: MOD ^
 							{
-							MOD53=(Token)match(input,MOD,FOLLOW_MOD_in_mult464); if (state.failed) return retval;
+							MOD55=(Token)match(input,MOD,FOLLOW_MOD_in_mult474); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							MOD53_tree = (CommonTree)adaptor.create(MOD53);
-							root_0 = (CommonTree)adaptor.becomeRoot(MOD53_tree, root_0);
+							MOD55_tree = (CommonTree)adaptor.create(MOD55);
+							root_0 = (CommonTree)adaptor.becomeRoot(MOD55_tree, root_0);
 							}
 
 							}
@@ -1228,10 +1272,10 @@ public class SimplePascalParser extends Parser {
 						case 4 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:88:35: POW ^
 							{
-							POW54=(Token)match(input,POW,FOLLOW_POW_in_mult469); if (state.failed) return retval;
+							POW56=(Token)match(input,POW,FOLLOW_POW_in_mult479); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							POW54_tree = (CommonTree)adaptor.create(POW54);
-							root_0 = (CommonTree)adaptor.becomeRoot(POW54_tree, root_0);
+							POW56_tree = (CommonTree)adaptor.create(POW56);
+							root_0 = (CommonTree)adaptor.becomeRoot(POW56_tree, root_0);
 							}
 
 							}
@@ -1239,17 +1283,17 @@ public class SimplePascalParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_unary_in_mult473);
-					unary55=unary();
+					pushFollow(FOLLOW_unary_in_mult483);
+					unary57=unary();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, unary55.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, unary57.getTree());
 
 					}
 					break;
 
 				default :
-					break loop9;
+					break loop11;
 				}
 			}
 
@@ -1290,13 +1334,13 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token PLUS57=null;
-		Token MINUS58=null;
-		ParserRuleReturnScope mult56 =null;
-		ParserRuleReturnScope mult59 =null;
+		Token PLUS59=null;
+		Token MINUS60=null;
+		ParserRuleReturnScope mult58 =null;
+		ParserRuleReturnScope mult61 =null;
 
-		CommonTree PLUS57_tree=null;
-		CommonTree MINUS58_tree=null;
+		CommonTree PLUS59_tree=null;
+		CommonTree MINUS60_tree=null;
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:3: ( mult ( ( PLUS ^| MINUS ^) mult )* )
@@ -1305,50 +1349,50 @@ public class SimplePascalParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_mult_in_expression490);
-			mult56=mult();
+			pushFollow(FOLLOW_mult_in_expression500);
+			mult58=mult();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, mult56.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, mult58.getTree());
 
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:10: ( ( PLUS ^| MINUS ^) mult )*
-			loop11:
+			loop13:
 			while (true) {
-				int alt11=2;
-				int LA11_0 = input.LA(1);
-				if ( (LA11_0==MINUS||LA11_0==PLUS) ) {
-					alt11=1;
+				int alt13=2;
+				int LA13_0 = input.LA(1);
+				if ( (LA13_0==MINUS||LA13_0==PLUS) ) {
+					alt13=1;
 				}
 
-				switch (alt11) {
+				switch (alt13) {
 				case 1 :
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:11: ( PLUS ^| MINUS ^) mult
 					{
 					// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:11: ( PLUS ^| MINUS ^)
-					int alt10=2;
-					int LA10_0 = input.LA(1);
-					if ( (LA10_0==PLUS) ) {
-						alt10=1;
+					int alt12=2;
+					int LA12_0 = input.LA(1);
+					if ( (LA12_0==PLUS) ) {
+						alt12=1;
 					}
-					else if ( (LA10_0==MINUS) ) {
-						alt10=2;
+					else if ( (LA12_0==MINUS) ) {
+						alt12=2;
 					}
 
 					else {
 						if (state.backtracking>0) {state.failed=true; return retval;}
 						NoViableAltException nvae =
-							new NoViableAltException("", 10, 0, input);
+							new NoViableAltException("", 12, 0, input);
 						throw nvae;
 					}
 
-					switch (alt10) {
+					switch (alt12) {
 						case 1 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:12: PLUS ^
 							{
-							PLUS57=(Token)match(input,PLUS,FOLLOW_PLUS_in_expression494); if (state.failed) return retval;
+							PLUS59=(Token)match(input,PLUS,FOLLOW_PLUS_in_expression504); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							PLUS57_tree = (CommonTree)adaptor.create(PLUS57);
-							root_0 = (CommonTree)adaptor.becomeRoot(PLUS57_tree, root_0);
+							PLUS59_tree = (CommonTree)adaptor.create(PLUS59);
+							root_0 = (CommonTree)adaptor.becomeRoot(PLUS59_tree, root_0);
 							}
 
 							}
@@ -1356,10 +1400,10 @@ public class SimplePascalParser extends Parser {
 						case 2 :
 							// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:92:20: MINUS ^
 							{
-							MINUS58=(Token)match(input,MINUS,FOLLOW_MINUS_in_expression499); if (state.failed) return retval;
+							MINUS60=(Token)match(input,MINUS,FOLLOW_MINUS_in_expression509); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							MINUS58_tree = (CommonTree)adaptor.create(MINUS58);
-							root_0 = (CommonTree)adaptor.becomeRoot(MINUS58_tree, root_0);
+							MINUS60_tree = (CommonTree)adaptor.create(MINUS60);
+							root_0 = (CommonTree)adaptor.becomeRoot(MINUS60_tree, root_0);
 							}
 
 							}
@@ -1367,17 +1411,17 @@ public class SimplePascalParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_mult_in_expression503);
-					mult59=mult();
+					pushFollow(FOLLOW_mult_in_expression513);
+					mult61=mult();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, mult59.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, mult61.getTree());
 
 					}
 					break;
 
 				default :
-					break loop11;
+					break loop13;
 				}
 			}
 
@@ -1418,17 +1462,17 @@ public class SimplePascalParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token char_literal60=null;
+		Token char_literal62=null;
 
-		CommonTree char_literal60_tree=null;
+		CommonTree char_literal62_tree=null;
 		RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
 
 		try {
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:96:3: ( '-' -> NEGATION )
 			// D:\\univer\\simplePascal\\src\\lang\\simplePascal\\SimplePascal.g:96:5: '-'
 			{
-			char_literal60=(Token)match(input,MINUS,FOLLOW_MINUS_in_negation520); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_MINUS.add(char_literal60);
+			char_literal62=(Token)match(input,MINUS,FOLLOW_MINUS_in_negation530); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_MINUS.add(char_literal62);
 
 			// AST REWRITE
 			// elements: 
@@ -1476,64 +1520,66 @@ public class SimplePascalParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_29_in_program84 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_IDENT_in_program87 = new BitSet(new long[]{0x0000000101000000L});
-	public static final BitSet FOLLOW_variableDeclaration_in_program95 = new BitSet(new long[]{0x0000000101000000L});
-	public static final BitSet FOLLOW_24_in_program102 = new BitSet(new long[]{0x00000000400C0300L});
-	public static final BitSet FOLLOW_statement_in_program111 = new BitSet(new long[]{0x00000000400C0300L});
-	public static final BitSet FOLLOW_returnStatement_in_program120 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_program126 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_30_in_returnStatement142 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_returnStatement145 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_returnStatement147 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_32_in_variableDeclaration161 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_IDENT_in_variableDeclaration164 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_variableDeclaration166 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assignStatement_in_statement185 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifStatement_in_statement191 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_printStatement_in_statement197 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whileStatement_in_statement203 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENT_in_assignStatement218 = new BitSet(new long[]{0x0000000000000010L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignStatement220 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_assignStatement223 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_assignStatement225 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINT_in_printStatement241 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_printStatement244 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_printStatement246 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifStatement264 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_ifStatement267 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_31_in_ifStatement269 = new BitSet(new long[]{0x000000000C0C0300L});
-	public static final BitSet FOLLOW_block_in_ifStatement278 = new BitSet(new long[]{0x000000000C000000L});
-	public static final BitSet FOLLOW_26_in_ifStatement285 = new BitSet(new long[]{0x00000000080C0300L});
-	public static final BitSet FOLLOW_block_in_ifStatement294 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_27_in_ifStatement302 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_IF_in_ifStatement305 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_ifStatement308 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHILE_in_whileStatement324 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_whileStatement327 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_whileStatement329 = new BitSet(new long[]{0x00000000080C0300L});
-	public static final BitSet FOLLOW_block_in_whileStatement338 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_27_in_whileStatement344 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_WHILE_in_whileStatement347 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_whileStatement350 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statement_in_block366 = new BitSet(new long[]{0x00000000000C0302L});
-	public static final BitSet FOLLOW_IDENT_in_term395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_21_in_term401 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_expression_in_term403 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_term405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_term411 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PLUS_in_unary427 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_negation_in_unary432 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_term_in_unary437 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_unary_in_mult450 = new BitSet(new long[]{0x0000000000026082L});
-	public static final BitSet FOLLOW_MULT_in_mult454 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_DIV_in_mult459 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_MOD_in_mult464 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_POW_in_mult469 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_unary_in_mult473 = new BitSet(new long[]{0x0000000000026082L});
-	public static final BitSet FOLLOW_mult_in_expression490 = new BitSet(new long[]{0x0000000000011002L});
-	public static final BitSet FOLLOW_PLUS_in_expression494 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_MINUS_in_expression499 = new BitSet(new long[]{0x0000000000211500L});
-	public static final BitSet FOLLOW_mult_in_expression503 = new BitSet(new long[]{0x0000000000011002L});
-	public static final BitSet FOLLOW_MINUS_in_negation520 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_30_in_program84 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_IDENT_in_program87 = new BitSet(new long[]{0x0000000000100020L});
+	public static final BitSet FOLLOW_VAR_in_program95 = new BitSet(new long[]{0x0000000000000220L});
+	public static final BitSet FOLLOW_variableDeclaration_in_program99 = new BitSet(new long[]{0x0000000000000220L});
+	public static final BitSet FOLLOW_BEGIN_in_program108 = new BitSet(new long[]{0x0000000080280600L});
+	public static final BitSet FOLLOW_statement_in_program116 = new BitSet(new long[]{0x0000000080280600L});
+	public static final BitSet FOLLOW_returnStatement_in_program125 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_29_in_program131 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_returnStatement147 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_returnStatement150 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_returnStatement152 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENT_in_variableDeclaration166 = new BitSet(new long[]{0x0000000002000010L});
+	public static final BitSet FOLLOW_ASSIGN_in_variableDeclaration169 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_variableDeclaration172 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_variableDeclaration176 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assignStatement_in_statement195 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifStatement_in_statement201 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_printStatement_in_statement207 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whileStatement_in_statement213 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENT_in_assignStatement228 = new BitSet(new long[]{0x0000000000000010L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignStatement230 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_assignStatement233 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_assignStatement235 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINT_in_printStatement251 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_printStatement254 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_printStatement256 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifStatement274 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_ifStatement277 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_32_in_ifStatement279 = new BitSet(new long[]{0x0000000018280600L});
+	public static final BitSet FOLLOW_block_in_ifStatement288 = new BitSet(new long[]{0x0000000018000000L});
+	public static final BitSet FOLLOW_27_in_ifStatement295 = new BitSet(new long[]{0x0000000010280600L});
+	public static final BitSet FOLLOW_block_in_ifStatement304 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_ifStatement312 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_IF_in_ifStatement315 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_ifStatement318 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHILE_in_whileStatement334 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_whileStatement337 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_26_in_whileStatement339 = new BitSet(new long[]{0x0000000010280600L});
+	public static final BitSet FOLLOW_block_in_whileStatement348 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_whileStatement354 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_WHILE_in_whileStatement357 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_whileStatement360 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statement_in_block376 = new BitSet(new long[]{0x0000000000280602L});
+	public static final BitSet FOLLOW_IDENT_in_term405 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_23_in_term411 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_expression_in_term413 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_term415 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_term421 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PLUS_in_unary437 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_negation_in_unary442 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_term_in_unary447 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_unary_in_mult460 = new BitSet(new long[]{0x000000000004C102L});
+	public static final BitSet FOLLOW_MULT_in_mult464 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_DIV_in_mult469 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_MOD_in_mult474 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_POW_in_mult479 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_unary_in_mult483 = new BitSet(new long[]{0x000000000004C102L});
+	public static final BitSet FOLLOW_mult_in_expression500 = new BitSet(new long[]{0x0000000000022002L});
+	public static final BitSet FOLLOW_PLUS_in_expression504 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_MINUS_in_expression509 = new BitSet(new long[]{0x0000000000822A00L});
+	public static final BitSet FOLLOW_mult_in_expression513 = new BitSet(new long[]{0x0000000000022002L});
+	public static final BitSet FOLLOW_MINUS_in_negation530 = new BitSet(new long[]{0x0000000000000002L});
 }
