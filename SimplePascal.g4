@@ -135,26 +135,10 @@ funcCall
  | strFunCall
  ;
 
-
-incFunCall
- : fun=(FN_INC | FN_DEC)
-   OPAR ID CPAR
- ;
-
-mathFunCall
- : fun=( FN_SQRT | FN_POW | FN_EXP | FN_LN )
-   OPAR argList CPAR
- ;
-
-trigFunCall
- : fun=( FN_SIN | FN_COS | FN_TAN | FN_ATAN )
-   OPAR expr CPAR
- ;
-
-strFunCall
- : fun=(FN_LEN | FN_CNCT | FN_DEL | FN_CPY )
-   OPAR argList CPAR
- ;
+incFunCall  : fun=( FN_INC  | FN_DEC )                     OPAR ID      CPAR ;
+mathFunCall : fun=( FN_SQRT | FN_POW  | FN_EXP | FN_LN   ) OPAR argList CPAR ;
+trigFunCall : fun=( FN_SIN  | FN_COS  | FN_TAN | FN_ATAN ) OPAR expr    CPAR ;
+strFunCall  : fun=( FN_LEN  | FN_CNCT | FN_DEL | FN_CPY  ) OPAR argList CPAR ;
 
 
 /* ************************************
