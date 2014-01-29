@@ -1,5 +1,4 @@
 
-
 term project for Compiler construction class
 ```
 +--simplePascal  
@@ -26,4 +25,4 @@ rm sources.txt
 ```
 
 #### Run
-`java -classpath .;out;antlr-4.1-complete.jar edu.simplepascal.Main`
+`java -classpath .;out;antlr-4.1-complete.jar edu.simplepascal.Main   <source_file.pas>`
