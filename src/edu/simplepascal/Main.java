@@ -12,16 +12,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String srcFileName = "test/general.pas";
+        String srcFileName = args.length != 0 ? args[0] : "test/general.pas";
         SimplePascalLexer lexer =   new SimplePascalLexer(new ANTLRFileStream(srcFileName));
 
-       //  new SimplePascalLexer(inputStream);
         SimplePascalParser parser = new SimplePascalParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.program();
-
-        String treeString = tree.toStringTree();
-
-        System.out.println(treeString);
 
         BaseVisitor visitor = new BaseVisitor();
         visitor.visit(tree);
